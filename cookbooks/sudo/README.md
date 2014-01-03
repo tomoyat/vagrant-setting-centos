@@ -1,68 +1,28 @@
 sudo Cookbook
 =============
-TODO: Enter the cookbook description here.
+参考 https://github.com/opscode-cookbooks/sudo
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
-
-Requirements
-------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
-
-e.g.
-#### packages
-- `toaster` - sudo needs toaster to brown your bagel.
-
-Attributes
-----------
-TODO: List you cookbook attributes here.
-
-e.g.
-#### sudo::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['sudo']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
-
+sudoers.dはsudoersの最後にコメントのような感じで書かれているので注意
+```
+## Read drop-in files from /etc/sudoers.d (the # here does not mean a comment)
+#includedir /etc/sudoers.d
+```
 Usage
 -----
-#### sudo::default
-TODO: Write usage instructions for each cookbook.
+user-settingで使用したjsonにsudo情報を追加する
 
-e.g.
-Just include `sudo` in your node's `run_list`:
-
+hoge.json
 ```json
 {
-  "name":"my_node",
-  "run_list": [
-    "recipe[sudo]"
-  ]
+    "id" : "hoge",
+    "user_name" : "hoge",
+    "uid" : 1,
+    "home" : "/home/hoge",
+    "shell" : "/bin/bash",
+    "password" : "hased password(openssl passwd -1 password, etc)",
+    "ssh_key" : "ssh public key",
+    "group_name" : "hoge",
+    "gid" : 1
+    "sudoer" : "yes" //ここを追加
 }
 ```
-
-Contributing
-------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
-
-e.g.
-1. Fork the repository on Github
-2. Create a named feature branch (like `add_component_x`)
-3. Write your change
-4. Write tests for your change (if applicable)
-5. Run the tests, ensuring they all pass
-6. Submit a Pull Request using Github
-
-License and Authors
--------------------
-Authors: TODO: List authors
