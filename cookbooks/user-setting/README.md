@@ -25,6 +25,7 @@ hoge.json
     "home" : "/home/hoge",
     "shell" : "/bin/bash",
     "password" : "hased password(openssl passwd -1 password, etc)",
+    "ssh_key" : "ssh public key",
     "group_name" : "hoge",
     "gid" : 1
 }
