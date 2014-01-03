@@ -95,9 +95,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :chef_solo do  |chef|
     chef.cookbooks_path = "./cookbooks"
     chef.data_bags_path = "./data_bags"
+    chef.json = {
+      "sshd" => {
+        "ssh_port" => 22,
+        "password_auth"=> "no",
+        "permit_root" => "no"
+      }
+    }
+
     chef.add_recipe "base"
     chef.add_recipe "iptables"
     chef.add_recipe "user-setting"
+    chef.add_recipe "sudo"
+    #chef.add_recipe "sshd"
   end
   # Enable provisioning with chef server, specifying the chef server URL,
   # and the path to the validation key (relative to this Vagrantfile).
