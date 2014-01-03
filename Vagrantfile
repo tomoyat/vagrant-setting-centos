@@ -94,7 +94,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # end
   config.vm.provision :chef_solo do  |chef|
     chef.cookbooks_path = "./cookbooks"
+    chef.data_bags_path = "./data_bags"
     chef.add_recipe "base"
+    chef.add_recipe "iptables"
+    chef.add_recipe "user-setting"
   end
   # Enable provisioning with chef server, specifying the chef server URL,
   # and the path to the validation key (relative to this Vagrantfile).
