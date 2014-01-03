@@ -46,3 +46,29 @@ data_ids.each do |id|
     not_if { ::File.exists?("#{authorized_keys_file}") }
   end
 end
+
+# rc files
+data_ids.each do |id|
+  u = data_bag_item("users", id)
+  zshrc_file = "#{u['home']}/.zshrc"
+  template zshrc_file do
+    source "zshrc.erb"
+    owner u['user_name']
+    group u['group_name']
+    mode 0644
+  end
+  screenrc_file = "#{u['home']}/.screenrc"
+  template screenrc_file do
+    source "screenrc.erb"
+    owner u['user_name']
+    group u['group_name']
+    mode 0644
+  end
+  vimrc_file = "#{u['home']}/.vimrc"
+  template vimrc_file do
+    source "vimrc.erb"
+    owner u['user_name']
+    group u['group_name']
+    mode 0644
+  end
+end
