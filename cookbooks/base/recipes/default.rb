@@ -6,6 +6,14 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+
+#time zone
+bash "set timezone jst" do
+  code <<-EOC
+    sudo cp -p  /usr/share/zoneinfo/Japan /etc/localtime
+  EOC
+end
+
 package "git" do
   action :install
 end
