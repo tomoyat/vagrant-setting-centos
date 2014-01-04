@@ -109,6 +109,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "sudo"
     chef.add_recipe "sshd"
     chef.add_recipe "nodebrew"
+    chef.add_recipe "mongo"
   end
   # Enable provisioning with chef server, specifying the chef server URL,
   # and the path to the validation key (relative to this Vagrantfile).
