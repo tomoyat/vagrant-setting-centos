@@ -48,3 +48,5 @@ case $HOST in
         PROMPT=$'\n'"${CYAN}%D %T${RESET} [%~]"$'\n'" %U%n@{${GREEN}%M${RESET}}%u %# "
         ;;
 esac
+
+<%= "export PATH=$HOME/.nodebrew/current/bin:$PATH" if @nodebrew === "yes" %>
