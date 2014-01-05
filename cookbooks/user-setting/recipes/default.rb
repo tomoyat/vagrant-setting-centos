@@ -72,4 +72,15 @@ data_ids.each do |id|
     group u["group_name"]
     mode 0644
   end
+  gitconfig_file = "#{u['home']}/.gitconfig"
+  template gitconfig_file do
+    source "gitconfig.erb"
+    owner u["user_name"]
+    group u["group_name"]
+    mode 0644
+    variables(
+              :git_name => u["git_name"],
+              :git_mail => u["git_mail"]
+              )
+  end
 end

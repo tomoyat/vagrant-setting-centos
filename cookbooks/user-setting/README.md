@@ -27,7 +27,10 @@ hoge.json
     "password" : "hased password(openssl passwd -1 password, etc)",
     "ssh_key" : "ssh public key",
     "group_name" : "hoge",
-    "gid" : 1
+    "gid" : 1,
+    "nodebrew" : "yes or no",
+    "git_name" : "git_name",
+    "git_mail" : "git_mail",
 }
 ```
 
