@@ -10,6 +10,10 @@ package "python-devel" do
   action :install
 end
 
+package "python-pycurl" do
+  action :install
+end
+
 cookbook_file "#{Chef::Config[:file_cache_path]}/get-pip.py" do
   source 'get-pip.py'
   mode "0644"
