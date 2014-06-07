@@ -50,3 +50,6 @@ case $HOST in
 esac
 
 <%= "export PATH=$HOME/.nodebrew/current/bin:$PATH" if @nodebrew === "yes" %>
+
+<%= "export PATH=$HOME/.rbenv/bin:$PATH" if @rbenv === "yes" %>
+<%= "eval \"$(rbenv init -)\"" if @rbenv === "yes" %>

@@ -56,7 +56,10 @@ data_ids.each do |id|
     owner u["user_name"]
     group u["group_name"]
     mode 0644
-    variables(:nodebrew => u["nodebrew"])
+    variables({
+      :nodebrew => u["nodebrew"],
+      :rbenv => u["rbenv"]
+    })
   end
   screenrc_file = "#{u['home']}/.screenrc"
   template screenrc_file do

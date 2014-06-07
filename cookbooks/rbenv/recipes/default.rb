@@ -21,17 +21,6 @@ data_ids.each do |id|
     group u["group_name"]
   end
 
-  bash "setup zshrc" do
-    user u["user_name"]
-    group u["group_name"]
-    cwd u["home"]
-    environment "HOME" => u["home"]
-    code <<-EOC
-      echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc ;
-      echo 'eval "$(rbenv init -)"' >> ~/.zshrc ;
-    EOC
-  end
-
   directory "#{u['home']}/.rbenv/plugins" do
     user u["user_name"]
     group u["group_name"]
