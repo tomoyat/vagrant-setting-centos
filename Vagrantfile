@@ -115,6 +115,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "rbenv"
     chef.add_recipe "java"
     chef.add_recipe "sqlite"
+    chef.add_recipe "nginx"
   end
   # Enable provisioning with chef server, specifying the chef server URL,
   # and the path to the validation key (relative to this Vagrantfile).
